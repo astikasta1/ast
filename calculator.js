@@ -23,7 +23,7 @@ function formatNumber(value) {
   if (Math.abs(num) < 1e15 && value.indexOf('e') === -1) {
     // Preserve trailing decimal point and zeros during input
     if (value.endsWith('.') || /\.\d*0$/.test(value)) return value;
-    return parseFloat(value.toPrecision(12)).toString();
+    return parseFloat(num.toPrecision(12)).toString();
   }
   return num.toPrecision(10).replace(/\.?0+e/, 'e');
 }
