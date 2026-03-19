@@ -1,0 +1,128 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.calculator {
+  background: #1c1c1e;
+  border-radius: 20px;
+  padding: 20px;
+  width: 320px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+.display {
+  padding: 12px 8px 20px;
+  text-align: right;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.expression {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.4);
+  min-height: 22px;
+  word-break: break-all;
+  margin-bottom: 4px;
+}
+
+.result {
+  font-size: 52px;
+  font-weight: 300;
+  color: #ffffff;
+  line-height: 1.1;
+  word-break: break-all;
+  transition: font-size 0.1s;
+}
+
+.result.small {
+  font-size: 36px;
+}
+
+.result.tiny {
+  font-size: 26px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.btn {
+  border: none;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  font-size: 22px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: filter 0.1s, transform 0.08s;
+  user-select: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:active {
+  filter: brightness(0.75);
+  transform: scale(0.95);
+}
+
+.btn.span-two {
+  border-radius: 32px;
+  width: 100%;
+  grid-column: span 2;
+  justify-content: flex-start;
+  padding-left: 24px;
+}
+
+/* Function buttons (AC, +/-, %) */
+.btn:nth-child(1),
+.btn:nth-child(2),
+.btn:nth-child(3) {
+  background: #636366;
+  color: #ffffff;
+}
+
+/* Operator buttons */
+.btn.operator {
+  background: #ff9f0a;
+  color: #ffffff;
+}
+
+.btn.operator.active {
+  background: #ffffff;
+  color: #ff9f0a;
+}
+
+/* Number buttons */
+.btn:not(.operator):not(.equals):nth-child(n+4) {
+  background: #2c2c2e;
+  color: #ffffff;
+}
+
+/* Equals button */
+.btn.equals {
+  background: #ff9f0a;
+  color: #ffffff;
+}
+
+/* Hover effects */
+.btn:hover {
+  filter: brightness(1.15);
+}
